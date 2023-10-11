@@ -1,0 +1,6 @@
+chr1.ped chr1.map
+chr2.ped chr2.map
+chr6.ped chr6.map
+chr8.ped chr8.map
+chr12.ped chr12.map
+chr14.ped chr14.map

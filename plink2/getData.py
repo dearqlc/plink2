@@ -6,10 +6,10 @@ import csv
 def createCsv(temp_list1):
     with open("E:\\WJH\\csvs/" + temp_list1[0].get("id") + ".csv", "a", encoding="utf-8", newline="") as f:
         csv_writer = csv.writer(f)
-        name = ["chr", "beta", "id", "snp"]
+        name = ["chr", "beta", "id", "snp", "ea", "oa"]
         csv_writer.writerow(name)
         for i in temp_list1:
-            csv_writer.writerow([i.get("chr"), i.get("beta"), i.get("id"), i.get("snp")])
+            csv_writer.writerow([i.get("chr"), i.get("beta"), i.get("id"), i.get("snp"), i.get("ea"), i.get("oa")])
         f.close()
 
 
@@ -24,9 +24,9 @@ def createTxt(snp_list1, temp_list2):
 
 
 met_list = []
-met_csv = csv.reader(open("E:/WJH/met.csv"))
+met_csv = csv.reader(open("met1.csv"))
 for row in met_csv:
-    dict_met = {"chr": row[0], "beta": row[5], "id": row[6], "snp": row[7]}
+    dict_met = {"chr": row[0], "beta": row[5], "id": row[6], "snp": row[7], "ea": row[8], "oa": row[9]}
     met_list.append(dict_met)
 del (met_list[0])
 id_exposure = met_list[0].get("id")

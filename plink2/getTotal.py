@@ -47,5 +47,6 @@ with open("total.csv", "a", encoding="utf-8", newline="") as f:
     csv_writer = csv.writer(f)
     csv_writer.writerow(["id", "dna", "total"])
     for i in range(0, len(total_list)):
-        csv_writer.writerow([total_list[i].get("pre").split("_")[0].split(" ")[1], total_list[i].get("pre"), total_list[i].get("total")])
+        csv_writer.writerow([total_list[i].get("pre").split("_")[0].split(" ")[1], total_list[i].get("pre"),
+                             total_list[i].get("total")])
     f.close()

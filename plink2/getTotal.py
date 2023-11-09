@@ -2,7 +2,7 @@
 import csv
 
 list_duration = []
-f = open("duration.map", "r")
+f = open("file/duration.map", "r")
 a = f.readlines()
 for n in a:
     list_duration.append(n.split("\t")[1])
@@ -11,7 +11,7 @@ print(list_duration)
 
 # 生成snp,beta,ea键值list
 ky_list = []
-f = open("sleepduration.csv", "r")
+f = open("file/sleepduration.csv", "r")
 a = f.readlines()
 for i in a:
     row = i.split(",")

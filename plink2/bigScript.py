@@ -56,13 +56,13 @@ def getTotal(map_file, csv_file, ped_file, total_file):
 
 
 # 生成ped map对
-def getTxt(file_name):
+def getTxt(file_name, id_exposure1):
     fil_path = "E:\WJH\wjh"
     files = os.listdir(fil_path)
     f = open(file_name, "w")
     txt_list = []
     for m in files:
-        if str(m).__contains__("ped") and str(m).__contains__("chr"):
+        if str(m).__contains__("ped") and str(m).__contains__("chr") and str(m).__contains__(id_exposure1):
             txt_list.append(int(m.split(".")[0].split("r")[1]))
     txt_list.sort()
     for n in txt_list:
@@ -72,7 +72,7 @@ def getTxt(file_name):
 
 # 载入met.csv
 met_list = []
-met_csv = csv.reader(open("met.csv"))
+met_csv = csv.reader(open("file/met.csv"))
 for row in met_csv:
     dict_met = {"chr": row[0], "id": row[6]}
     met_list.append(dict_met)
@@ -106,6 +106,6 @@ for id_exposure in id_list:
                 chr_exposure) + ".psam --export vcf").wait()
         subprocess.Popen("plink2 --vcf plink2.vcf --make-bed --out chr " + str(chr_exposure) + "").wait()
         subprocess.Popen("plink --bfile chr" + str(chr_exposure) + "--recode --out chr" + str(chr_exposure) + "").wait()
-    getTxt(id_exposure + ".txt")
+    getTxt(id_exposure + ".txt", id_exposure)
     subprocess.Popen("plink --merge-list " + id_exposure + ".txt --recode --out duration").wait()
     getTotal(id_exposure + ".map", id_exposure + ".csv", id_exposure + ".ped", id_exposure + "_result.csv")

@@ -24,7 +24,7 @@ def createTxt(snp_list1, temp_list2):
 
 
 met_list = []
-met_csv = csv.reader(open("met1.csv"))
+met_csv = csv.reader(open("file/met1.csv"))
 for row in met_csv:
     dict_met = {"chr": row[0], "beta": row[5], "id": row[6], "snp": row[7], "ea": row[8], "oa": row[9]}
     met_list.append(dict_met)

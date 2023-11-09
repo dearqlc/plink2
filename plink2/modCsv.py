@@ -4,7 +4,7 @@ import csv
 
 
 def createCsv(temp_list1):
-    with open("met1.csv", "a", encoding="utf-8", newline="") as f:
+    with open("file/met1.csv", "a", encoding="utf-8", newline="") as f:
         csv_writer = csv.writer(f)
         name = ["chr.exposure", "samplesize.exposure", "se.exposure", "pos.exposure", "pval.exposure", "beta.exposure",
                 "id.exposure", "SNP", "effect_allele.exposure", "other_allele.exposure", "eaf.exposure", "exposure"]
@@ -24,7 +24,7 @@ def createCsv(temp_list1):
 
 
 met_list = []
-met_csv = csv.reader(open("met.csv"))
+met_csv = csv.reader(open("file/met.csv"))
 for row in met_csv:
     dict_met = {"chr.exposure": row[0], "samplesize.exposure": row[1], "se.exposure": row[2], "pos.exposure": row[3],
                 "pval.exposure": row[4], "beta.exposure": row[5], "id.exposure": row[6], "SNP": row[7],

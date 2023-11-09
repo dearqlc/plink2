@@ -1,0 +1,9 @@
+chr.exposure,samplesize.exposure,se.exposure,pos.exposure,pval.exposure,beta.exposure,id.exposure,SNP,effect_allele.exposure,other_allele.exposure,eaf.exposure,exposure,mr_keep.exposure,pval_origin.exposure,data_source.exposure
+1,NA,0.00407772,2330190,4.80E-09,0.0229488,met-d-Omega_3,rs6693447,G,T,0.461686,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+1,NA,0.00425038,62931632,3.60E-66,0.0713574,met-d-Omega_3,rs1167998,A,C,0.644674,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+1,NA,0.00488385,109818306,1.30E-14,0.0382887,met-d-Omega_3,rs629301,T,G,0.778033,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+4,NA,0.00491057,69491284,1.20E-21,0.0463493,met-d-Omega_3,rs4860987,T,A,0.258609,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+5,NA,0.0040658,131677047,2.40E-09,0.0240622,met-d-Omega_3,rs11242109,T,G,0.479016,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+5,NA,0.00421159,156397673,1.90E-13,0.0288844,met-d-Omega_3,rs6882345,A,G,0.632863,Omega-3 fatty acids || id:met-d-Omega_3,TRUE,reported,igd
+12,NA,0.00416502,111884608,2.00E-11,0.0279168,met-d-Acetate,rs3184504,C,T,0.516637,Acetate || id:met-d-Acetate,,,
+15,NA,0.0139027,43933941,1.00E-08,0.079682,met-d-Acetate,rs139097404,T,C,0.023515,Acetate || id:met-d-Acetate,,,

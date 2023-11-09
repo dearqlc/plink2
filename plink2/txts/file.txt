@@ -1,0 +1,7 @@
+chr1_A-mewer.ped chr1_A-mewer.map
+chr2_A-mewer.ped chr2_A-mewer.map
+chr4_A-mewer.ped chr4_A-mewer.map
+chr5_A-mewer.ped chr5_A-mewer.map
+chr6_A-mewer.ped chr6_A-mewer.map
+chr7_A-mewer.ped chr7_A-mewer.map
+chr8_A-mewer.ped chr8_A-mewer.map

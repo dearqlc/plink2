@@ -7,7 +7,7 @@ for m in files:
     if str(m).__contains__("ped"):
         a.append(int(m.split(".")[0].split("r")[1]))
 a.sort()
-f = open("file.txt", "w")
+f = open("txts/file.txt", "w")
 for n in a:
     f.write("chr" + str(n) + str(".ped chr") + str(n).split(".")[0] + ".map\n")
 f.close()

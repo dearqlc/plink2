@@ -6,7 +6,7 @@ import os
 import subprocess
 
 met_list = []
-met_csv = csv.reader(open("met.csv"))
+met_csv = csv.reader(open("file/met.csv"))
 for row in met_csv:
     dict_met = {"chr": row[0], "id": row[6]}
     met_list.append(dict_met)
@@ -31,33 +31,40 @@ chr_dict.setdefault(id_exposure, sorted(list(chr_set)))
 
 # 生成map ped键值对
 def getTxt():
-    fil_path = "E:\imputation"
+    fil_path = "tony"
     files = os.listdir(fil_path)
-    f = open("file" + id_exposure + ".txt", "w")
+    str_id_e = ""
+    for m in files:
+        if str(m).__contains__("ped") and str(m).__contains__("chr"):
+            str_id_e = str(m).split(".")[0].split("chr")[1]
+            str_id_e = str_id_e[str_id_e.index("_") + 1: len(str_id_e)]
+            break
+    f = open("file_" + str_id_e + ".txt", "w")
     a = []
     for m in files:
         if str(m).__contains__("ped") and str(m).__contains__("chr"):
-            a.append(int(m.split(".")[0].split("r")[1]))
+            a.append(int(m.split(".")[0].split("chr")[1].split("_")[0]))
     a.sort()
     for n in a:
-        f.write("chr" + str(n) + str(".ped chr") + str(n).split(".")[0] + ".map\n")
+        f.write("chr" + str(n) + "_" + str_id_e + str(".ped chr") + str(n) + "_" + str_id_e + ".map\n")
     f.close()
 
 
-# 大循环
-for id_exposure in id_list:
-    # 小循环
-    for chr_exposure in chr_dict.get(id_exposure):
-        subprocess.Popen(
-            "plink2 --bgen bgen ukb_imp_chr" + str(chr_exposure) + "_v3.bgen ref-first --sample ukb22828_c" + str(
-                chr_exposure) + "_b0_v3.sample --extract " + id_exposure + ".txt --make-pgen --out chr" + str(
-                chr_exposure) + "" + id_exposure).wait()
-        subprocess.Popen("plink2 --pgen chr" + str(chr_exposure) + "" + id_exposure + ".pgen --pvar chr" + str(
-            chr_exposure) + "" + id_exposure + ".pvar --psam chr" + str(
-            chr_exposure) + "" + id_exposure + ".psam --export vcf").wait()
-        subprocess.Popen(
-            "plink2 --vcf plink2.vcf --make-bed --out chr " + str(chr_exposure) + "" + id_exposure + "").wait()
-        subprocess.Popen("plink --bfile chr" + str(chr_exposure) + "" + id_exposure + " --recode --out chr" + str(
-            chr_exposure) + "" + id_exposure).wait()
-    getTxt()
-    subprocess.Popen("plink --merge-list file" + id_exposure + ".txt --recode --out " + id_exposure).wait()
+getTxt()
+# # 大循环
+# for id_exposure in id_list:
+#     # 小循环
+#     for chr_exposure in chr_dict.get(id_exposure):
+#         subprocess.Popen(
+#             "plink2 --bgen bgen ukb_imp_chr" + str(chr_exposure) + "_v3.bgen ref-first --sample ukb22828_c" + str(
+#                 chr_exposure) + "_b0_v3.sample --extract " + id_exposure + ".txt --make-pgen --out chr" + str(
+#                 chr_exposure) + "" + id_exposure).wait()
+#         subprocess.Popen("plink2 --pgen chr" + str(chr_exposure) + "" + id_exposure + ".pgen --pvar chr" + str(
+#             chr_exposure) + "" + id_exposure + ".pvar --psam chr" + str(
+#             chr_exposure) + "" + id_exposure + ".psam --export vcf").wait()
+#         subprocess.Popen(
+#             "plink2 --vcf plink2.vcf --make-bed --out chr " + str(chr_exposure) + "" + id_exposure + "").wait()
+#         subprocess.Popen("plink --bfile chr" + str(chr_exposure) + "" + id_exposure + " --recode --out chr" + str(
+#             chr_exposure) + "" + id_exposure).wait()
+#     getTxt()
+#     subprocess.Popen("plink --merge-list file" + id_exposure + ".txt --recode --out " + id_exposure).wait()

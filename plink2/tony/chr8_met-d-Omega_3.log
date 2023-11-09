@@ -1,0 +1,25 @@
+PLINK v1.90b7 64-bit (16 Jan 2023)
+Options in effect:
+  --bfile chr8_met-d-Omega_3
+  --out chr8_met-d-Omega_3
+  --recode
+
+Hostname: DESKTOP-F3Q1SE0
+Working directory: E:\imputation
+Start time: Thu Oct 12 10:16:02 2023
+
+Random number seed: 1697076962
+32652 MB RAM detected; reserving 16326 MB for main workspace.
+Allocated 6887 MB successfully, after larger attempt(s) failed.
+3 variants loaded from .bim file.
+487409 people (0 males, 0 females, 487409 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to chr8_met-d-Omega_3.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 487409 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.990144.
+3 variants and 487409 people pass filters and QC.
+Note: No phenotypes present.
+--recode ped to chr8_met-d-Omega_3.ped + chr8_met-d-Omega_3.map ... done.
+
+End time: Thu Oct 12 10:16:03 2023

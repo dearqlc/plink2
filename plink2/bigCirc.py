@@ -4,7 +4,7 @@ import os
 import subprocess
 
 met_list = []
-met_csv = csv.reader(open("met.csv"))
+met_csv = csv.reader(open("file/met.csv"))
 for row in met_csv:
     dict_met = {"chr": row[0], "id": row[6]}
     met_list.append(dict_met)
@@ -28,17 +28,17 @@ chr_dict.setdefault(id_exposure, sorted(list(chr_set)))
 
 
 # 生成map ped键值对
-def getTxt():
+def getTxt(id_e):
     fil_path = "E:\WJH\wjh"
     files = os.listdir(fil_path)
-    f = open("file.txt", "w")
+    f = open("txts/file.txt", "w")
     a = []
     for m in files:
         if str(m).__contains__("ped") and str(m).__contains__("chr"):
             a.append(int(m.split(".")[0].split("r")[1]))
     a.sort()
     for n in a:
-        f.write("chr" + str(n) + str(".ped chr") + str(n).split(".")[0] + ".map\n")
+        f.write("chr" + str(n) + "_" + str(id_e) + str(".ped chr") + str(n) + "_" + str(id_e).split(".")[0] + ".map\n")
     f.close()
 
 
@@ -54,4 +54,4 @@ for id_exposure in id_list:
                 chr_exposure) + ".psam --export vcf").wait()
         subprocess.Popen("plink2 --vcf plink2.vcf --make-bed --out chr " + str(chr_exposure) + "").wait()
         subprocess.Popen("plink --bfile chr" + str(chr_exposure) + "--recode --out chr" + str(chr_exposure) + "").wait()
-    getTxt()
+    getTxt(id_exposure)
